@@ -1,0 +1,39 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Related Products
+
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+# Insert Product References
+INSERT_UPDATE ProductReference;source(code,$catalogVersion)[unique=true];target(code,$catalogVersion)[unique=true];referenceType(code);active[default=true];preselected[default=false]
+;0001;0002;ACCESSORIES;true;false
+;0001;0003;OTHERS;true;false
+;0002;0001;ACCESSORIES;true;false
+;0002;0003;SIMILAR;true;false
+;0003;0001;ACCESSORIES;true;false
+;0003;0002;OTHERS;true;false
+
+;0004;0005;ACCESSORIES;true;false
+;0004;0006;OTHERS;true;false
+;0005;0004;OTHERS;true;false
+;0005;0006;ACCESSORIES;true;false
+;0006;0004;OTHERS;true;false
+;0006;0005;ACCESSORIES;true;false
+
+;0007;0008;SIMILAR;true;false
+;0007;0009;ACCESSORIES;true;false
+;0007;0010;OTHERS;true;false
+;0008;0007;ACCESSORIES;true;false
+;0008;0009;SIMILAR;true;false
+;0008;0010;OTHERS;true;false
+;0009;0008;ACCESSORIES;true;false
+;0009;0007;SIMILAR;true;false
+;0009;0010;OTHERS;true;false
+;0010;0008;ACCESSORIES;true;false
+;0010;0009;SIMILAR;true;false
+;0010;0007;OTHERS;true;false

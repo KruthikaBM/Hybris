@@ -1,0 +1,27 @@
+# ImpEx for Importing Products into Merchandise  store
+ 
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+ 
+ 
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full]
+ 
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);MyCustomAttribute;$catalogVersion;$approved;$taxGroup
+# ;1111;111;111;111;111;111;11;;;;
+;0001;Men;ADIDAS;A1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0002;Men;PUMA;P1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0003;Men;NIKE;N1;pieces;pieces;ApparelSizeVariantProduct;good;
+
+;0004;Women;ADIDAS;A1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0005;Women;PUMA;P1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0006;Women;NIKE;N1;pieces;pieces;ApparelSizeVariantProduct;good;
+
+;0007;Kids;PUMA;P1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0008;Kids;ADIDAS;A1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0009;Kids;NIKE;N1;pieces;pieces;ApparelSizeVariantProduct;good;
+;0010;Kids;PUMA;P2;pieces;pieces;ApparelSizeVariantProduct;good;

@@ -1,0 +1,11 @@
+#
+# Import the Merchandise Content Catalog
+#
+# ENGLISH LOCALIZATION
+#
+# Language
+$lang=en
+$contentCatalog=myShoeStoreContentCatalog
+# Create Content Catalog
+UPDATE ContentCatalog;id[unique=true];name[lang=$lang]
+;$contentCatalog;"myShoeStore Content Catalog"

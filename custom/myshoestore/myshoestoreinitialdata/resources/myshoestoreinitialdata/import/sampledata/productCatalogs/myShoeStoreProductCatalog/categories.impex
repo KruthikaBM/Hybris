@@ -1,0 +1,27 @@
+# ImpEx for Importing Categories into Merchandise Store
+
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=source(code, $catalogVersion)[unique=true]
+$categories=target(code, $catalogVersion)[unique=true]
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];allowedPrincipals(uid)[default='customergroup'];$catalogVersion
+ ;1
+#;Shoes
+;Men
+;Women
+;Kids
+
+# Insert Category Structure
+INSERT_UPDATE CategoryCategoryRelation;$categories;$supercategories
+# ;100;1
+ ;Men;1
+ ;Women;1
+ ;Kids;1
+#;Shoes;1
+# ;Men;Shoes
+# ;Women;Shoes
+# ;Kids;Shoes

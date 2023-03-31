@@ -1,0 +1,87 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products Stock Levels and Warehouses
+
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+INSERT_UPDATE Vendor;code[unique=true]
+;myShoeStore;MyShoeStore;MyShoeStore
+
+INSERT_UPDATE Warehouse;code[unique=true];vendor(code);default[default=true]
+;warehouse_c;myShoeStore;
+INSERT_UPDATE StockLevel;available;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+;100;warehouse_c;forceInStock;0;-1;0;0;0001;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0002;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0003;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0004;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0005;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0006;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0007;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0009;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0008;0
+;100;warehouse_c;notSpecified;0;-1;0;0;0010;0
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0001_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0001_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0001_large;0
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0002_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0002_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0002_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0003_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0003_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0003_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0004_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0004_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0004_large;0
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0005_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0005_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0005_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0006_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0006_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0006_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0007_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0007_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0007_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0008_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0008_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0008_large;0
+
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0009_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0009_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0009_large;0
+
+;100;warehouse_c;forceInStock;0;-1;0;0;0010_small;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0010_medium;0
+;100;warehouse_c;forceInStock;0;-1;0;0;0010_large;0
+
+
+
+UPDATE Product;code[unique=true];$catalogVersion;stockLevels(productCode,warehouse(code));vendors(code)
+;0001;;0001:warehouse_c;myShoeStore
+;0002;;0002:warehouse_c;myShoeStore
+;0003;;0003:warehouse_c;myShoeStore
+;0004;;0004:warehouse_c;myShoeStore
+;0005;;0005:warehouse_c;myShoeStore
+;0006;;0006:warehouse_c;myShoeStore
+;0007;;0007:warehouse_c;myShoeStore
+;0009;;0009:warehouse_c;myShoeStore
+

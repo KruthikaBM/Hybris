@@ -1,0 +1,66 @@
+<hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
+  <extensions>
+    <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <extension name='adaptivesearchsolr' />
+    <extension name='adaptivesearchbackoffice' />
+    <extension name='adaptivesearchwebservices' />
+    <extension name='commerceservicesbackoffice' />
+    <extension name='solrfacetsearchbackoffice' />
+    <extension name='solrserver' />
+    
+<!--    <extension name='ycommercewebservices' />-->
+    
+    <extension name='acceleratorwebservicesaddon' />
+    <extension name='rulebuilderbackoffice' />
+    <extension name='couponbackoffice' />
+    <extension name='droolsruleengineservices' />
+    <extension name='couponfacades' />
+    <extension name='couponservices' />
+    <extension name='cmswebservices' />
+
+
+    <extension name='permissionswebservices' />
+
+    <extension name='cmsbackoffice' />
+    <extension name='previewpersonalizationweb' />
+    <extension name='personalizationcmsweb' />
+
+    <extension name='personalizationsampledataaddon' />
+    <extension name='personalizationpromotions' />
+    <extension name='personalizationpromotionsweb' />
+    <extension name='personalizationservicesbackoffice' />
+    <extension name='personalizationpromotionsbackoffice' />
+    <extension name='personalizationcmsbackoffice' />
+    <extension name='personalizationintegrationbackoffice' />
+    <extension name='personalizationsearchbackoffice' />
+
+    <extension name='personalizationsearchweb' />
+    <extension name='pcmbackofficesamplesaddon' />
+
+    <extension name='myshoestorebackoffice'/>
+    <extension name='myshoestorecore'/>
+    <extension name='myshoestorefacades'/> 
+    <!-- <extension name='myshoestorefulfilmentprocess'/> -->
+    <extension name='myshoestoreinitialdata'/>
+    <extension name='myshoestorestorefront'/>
+    <extension name='myshoestoretest'/>
+
+    <extension name="myshoestoreordermanagment"/>
+
+<!--    <extension name='warehousing'/>-->
+<!--    <extension name='warehousingbackoffice'/>-->
+<!--    <extension name='warehousingfacades'/>-->
+<!--    <extension name='warehousingwebservices'/>-->
+
+
+    <!-- <extension name="titanproducts"/> -->
+    <extension name="newproductcronjob"/>
+    <extension name="myshoestorecommercewebservices"/>
+    <extension name="promotionenginetrail"/>
+
+
+  
+
+
+  </extensions>
+</hybrisconfig>

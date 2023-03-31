@@ -1,0 +1,63 @@
+# ImpEx for Importing Prices into Merchandise Store   
+"#% impex.setLocale( Locale.GERMAN )"
+  
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+   
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default='$productCatalog:Staged']
+$prices=Europe1prices[translator=de.hybris.platform.europe1.jalo.impex.Europe1PricesTranslator]
+   
+# Set product approval status to Approved only for those products that have prices.
+$approved=approvalstatus(code)[default='approved']
+  
+UPDATE Product;code[unique=true];$prices;$approved;$catalogVersion;
+ ;0001;5,00 GBP, 5,50 EUR, 7,48 USD, 765,33 JPY
+ ;0002;2,50 GBP, 2,75 EUR, 3,74 USD, 382,66 JPY
+ ;0003;5,00 GBP, 5,50 EUR, 7,48 USD, 765,33 JPY
+ ;0004;10,00 GBP, 11,00 EUR, 14,96 USD, 1530,65 JPY
+ ;0005;8,00 GBP, 10,00 EUR, 13,6 USD, 1391,50 JPY
+ ;0006;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+ ;0007;12,00 GBP, 15,00 EUR, 20,40 USD, 2087,25 JPY
+ ;0009;20,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+ ;0010;20,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+ 
+;0001_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0001_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPYh
+;0001_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0002_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0002_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0002_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0003_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0003_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0003_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0004_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0004_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0004_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0005_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0005_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0005_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0006_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0006_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0006_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0007_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0007_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0007_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0008_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0008_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0008_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+
+;0009_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0009_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0009_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY\
+
+;0010_small;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0010_medium;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+;0010_large;18,00 GBP, 22,00 EUR, 29,92 USD, 3061,30 JPY
+

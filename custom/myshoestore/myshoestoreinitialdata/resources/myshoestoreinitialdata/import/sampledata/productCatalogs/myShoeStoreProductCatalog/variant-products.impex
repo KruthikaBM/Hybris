@@ -1,0 +1,71 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Variant Products
+
+# CHANGE THIS TO WORK WITH YOUR OWN VARIANT STRUCTURE
+# ApparelProducts use Variants with a structure:
+# ApparelProduct > ApparelStyleVariantProduct > ApparelSizeVariantProduct
+# ApparelProducts may have no variations, only style variations or both style and size variations.
+
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+$productCatalogName=My Shoe Store Product Catalog
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+$taxGroup=Europe1PriceFactory_PTG(code)[default=jp-vat-full]
+
+
+# Create Products
+INSERT_UPDATE ApparelProduct;code[unique=true];ean;unit(code);supercategories(code,$catalogVersion);varianttype(code);genders(code);$approved;$catalogVersion
+
+# Create Variants
+INSERT_UPDATE ApparelStyleVariantProduct;code[unique=true];$baseProduct;ean;unit(code);swatchColors;supercategories(code,$catalogVersion);varianttype(code);$approved;$catalogVersion
+
+INSERT_UPDATE ApparelSizeVariantProduct;code[unique=true];$baseProduct;ean;unit(code);size;$supercategories;approvalstatus(code)[default='approved'];$catalogVersion;$taxGroup;MyCustomAttribute
+;0001_small;0001;;pieces;8;;;;;good;
+;0001_medium;0001;;pieces;9;;;;;good;
+;0001_large;0001;;pieces;10;;;;;good;
+
+;0002_small;0002;;pieces;8;;;;;good;
+;0002_medium;0002;;pieces;9;;;;;good;
+;0002_large;0002;;pieces;10;;;;;good;
+
+;0003_small;0003;;pieces;8;;;;;good;
+;0003_medium;0003;;pieces;9;;;;;good;
+;0003_large;0003;;pieces;10;;;;;good;
+
+
+;0004_small;0004;;pieces;8;;;;;good;
+;0004_medium;0004;;pieces;9;;;;;good;
+;0004_large;0004;;pieces;10;;;;;good;
+
+;0005_small;0005;;pieces;8;;;;;good;
+;0005_medium;0005;;pieces;9;;;;;good;
+;0005_large;0005;;pieces;10;;;;;good;
+
+;0006_small;0006;;pieces;8;;;;;good;
+;0006_medium;0006;;pieces;9;;;;;good;
+;0006_large;0006;;pieces;10;;;;;good;
+
+;0007_small;0007;;pieces;8;;;;;good;
+;0007_medium;0007;;pieces;9;;;;;good;
+;0007_large;0007;;pieces;10;;;;;good;
+
+;0008_small;0008;;pieces;8;;;;;good;
+;0008_medium;0008;;pieces;9;;;;;good;
+;0008_large;0008;;pieces;10;;;;;good;
+
+;0009_small;0009;;pieces;8;;;;;good;
+;0009_medium;0009;;pieces;9;;;;;good;
+;0009_large;0009;;pieces;10;;;;;good;
+
+;0010_small;0010;;pieces;8;;;;;good;
+;0010_medium;0010;;pieces;9;;;;;good;
+;0010_large;0010;;pieces;10;;;;;good;
+
+INSERT_UPDATE ElectronicsColorVariantProduct;code[unique=true];$baseProduct;ean;unit(code);color;supercategories(code,$catalogVersion);$approved;$catalogVersion;$taxGroup
+

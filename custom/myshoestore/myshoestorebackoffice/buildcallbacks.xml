@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+--><project name="myshoestorebackoffice_buildcallbacks">
+    	
+    <property name="myshoestorebackofficeWebFragmentSrc" value="${ext.myshoestorebackoffice.path}/resources/web-fragment.xml"/>
+    	
+    <property name="myshoestorebackofficeWebFragmentDestJar" value="${ext.backoffice.path}/web/webroot/WEB-INF/lib/webfragmentExt_myshoestorebackoffice.jar"/>
+    	
+    <macrodef name="myshoestorebackoffice_clean_classpath_file">
+        		
+        <sequential>
+            			
+            <copy failonerror="true" file="${ext.myshoestorebackoffice.path}/.classpath" overwrite="true" tofile="${ext.myshoestorebackoffice.path}/.classpath.edit">
+                				
+                <filterchain>
+                    					
+                    <linecontainsregexp negate="true">
+                        						
+                        <regexp pattern="^(\t\t\t\t|)$"/>
+                          
+                        <!-- added by script -->
+                        					
+                    </linecontainsregexp>
+                    				
+                </filterchain>
+                			
+            </copy>
+            			
+            <move failonerror="true" file="${ext.myshoestorebackoffice.path}/.classpath.edit" overwrite="true" tofile="${ext.myshoestorebackoffice.path}/.classpath"/>
+            		
+        </sequential>
+        	
+    </macrodef>
+    	
+    <macrodef name="myshoestorebackoffice_after_clean">
+        		
+        <sequential>
+            			
+            <echo level="info" message="Generating .classpath file for myshoestorebackoffice"/>
+            			
+            <create_extension_classpath_file extname="myshoestorebackoffice"/>
+            			
+            <myshoestorebackoffice_clean_classpath_file/>
+            			
+            <myshoestorebackoffice_remove_web_fragment/>
+            		
+        </sequential>
+        	
+    </macrodef>
+    	
+    <macrodef name="myshoestorebackoffice_after_build">
+        		
+        <sequential>
+            			
+            <myshoestorebackoffice_remove_web_fragment/>
+            			
+            <myshoestorebackoffice_create_web_fragment/>
+            		
+        </sequential>
+        	
+    </macrodef>
+    	
+    <macrodef name="myshoestorebackoffice_remove_web_fragment">
+        		
+        <sequential>
+            			
+            <if>
+                				
+                <available file="${myshoestorebackofficeWebFragmentDestJar}"/>
+                				
+                <then>
+                    					
+                    <delete file="${myshoestorebackofficeWebFragmentDestJar}"/>
+                    				
+                </then>
+                			
+            </if>
+            		
+        </sequential>
+        	
+    </macrodef>
+    	
+    <macrodef name="myshoestorebackoffice_create_web_fragment">
+        		
+        <sequential>
+            			
+            <if>
+                				
+                <available file="${myshoestorebackofficeWebFragmentSrc}"/>
+                				
+                <then>
+                    					
+                    <sequential>
+                        						
+                        <jar destfile="${myshoestorebackofficeWebFragmentDestJar}">
+                            							
+                            <metainf file="${myshoestorebackofficeWebFragmentSrc}"/>
+                            						
+                        </jar>
+                        					
+                    </sequential>
+                    				
+                </then>
+                			
+            </if>
+            		
+        </sequential>
+        	
+    </macrodef>
+    	
+    <patternset id="myshoestorebackoffice.localization.pattern">
+        		
+        <!-- core and hmc  -->
+        		
+        <include name="**/*locales*_en.properties"/>
+        		
+        <exclude name="**/hmc/web/webroot/WEB-INF/classes/**/*"/>
+        		
+        <exclude name="**/unittest/**/*"/>
+        		
+        <!-- cockpit (ng) -->
+        		
+        <include name="**/i3-label_en.properties"/>
+        		
+        <include name="**/labels_en.properties"/>
+        		
+        <!-- messages -->
+        		
+        <include name="**/*messages_en.properties"/>
+        		
+        <include name="**/*messages.properties"/>
+        		
+        <!-- frontend properties files in WEB-INF/messages folder -->
+        		
+        <include name="**/WEB-INF/messages/*_en.properties"/>
+        		
+        <!-- csv and impex -->
+        		
+        <include name="**/*_en.csv"/>
+        		
+        <include name="**/*_en.impex"/>
+        		
+        <include name="**/lang-en.properties"/>
+        		
+        <!-- email localizations from yacceleratorcore -->
+        		
+        <include name="resources/**/messages/*_en.properties"/>
+        		
+        <!-- include validation messages -->
+        		
+        <include name="resources/**/ValidationMessages.properties"/>
+        	
+    </patternset>
+    	
+    <macrodef name="myshoestorebackoffice_before_build">
+        		
+        <sequential>
+            			
+            <register_sass_extension extensionname="myshoestorebackoffice"/>
+            			
+            <register_sass_extension destination="" extensionname="myshoestorebackoffice" resources="resources"/>
+            		
+        </sequential>
+        	
+    </macrodef>
+    
+</project>

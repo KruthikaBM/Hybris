@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><newproductcronjob><testclass>de.hybris.newproductcronjob.jalo.NewproductcronjobTest</testclass><testclass>de.hybris.newproductcronjob.service.impl.DefaultNewproductcronjobServiceIntegrationTest</testclass></newproductcronjob></testclasses>

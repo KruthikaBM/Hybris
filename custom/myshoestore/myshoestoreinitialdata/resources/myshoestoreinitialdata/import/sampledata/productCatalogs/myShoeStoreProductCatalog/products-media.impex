@@ -1,0 +1,171 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImPex for Importing Product Media
+
+# Macros / Replacement Parameter definitions
+$productCatalog=myShoeStoreProductCatalog
+$storeName=myShoeStore
+
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog]
+$media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
+$thumbnail=thumbnail(code, $catalogVersion)
+$picture=picture(code, $catalogVersion)
+$thumbnails=thumbnails(code, $catalogVersion)
+$detail=detail(code, $catalogVersion)
+$normal=normal(code, $catalogVersion)
+$others=others(code, $catalogVersion)
+$data_sheet=data_sheet(code, $catalogVersion)
+$medias=medias(code, $catalogVersion)
+$galleryImages=galleryImages(qualifier, $catalogVersion)
+$siteResource=jar:my.myshoestore.initialdata.setup.InitialDataSystemSetup&\myshoestoreinitialdata\import\sampledata\productCatalogs\$productCatalog\images
+#D:\Hybris\hybris\bin\custom\myshoestore\myshoestoreinitialdata\resources\myshoestoreinitialdata\import\sampledata\productCatalogs\myShoeStoreProductCatalog\images\1200WX1200H
+# Create Media
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
+;1200Wx1200H;/1200Wx1200H/shoe1.jpg;$siteResource/1200Wx1200H/shoe1.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe2.jpg;$siteResource/1200Wx1200H/shoe2.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe3.jpg;$siteResource/1200Wx1200H/shoe3.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe4.jpg;$siteResource/1200Wx1200H/shoe4.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe5.jpg;$siteResource/1200Wx1200H/shoe5.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe6.jpg;$siteResource/1200Wx1200H/shoe6.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe7.jpg;$siteResource/1200Wx1200H/shoe7.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe8.jpg;$siteResource/1200Wx1200H/shoe8.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe9.jpg;$siteResource/1200Wx1200H/shoe9.jpg;;;images
+;1200Wx1200H;/1200Wx1200H/shoe10.jpg;$siteResource/1200Wx1200H/shoe10.jpg;;;images
+
+;515Wx515H;/515Wx515H/shoe1.jpg;$siteResource/515Wx515H/shoe1.jpg;;;images
+;515Wx515H;/515Wx515H/shoe2.jpg;$siteResource/515Wx515H/shoe2.jpg;;;images
+;515Wx515H;/515Wx515H/shoe3.jpg;$siteResource/515Wx515H/shoe3.jpg;;;images
+;515Wx515H;/515Wx515H/shoe4.jpg;$siteResource/515Wx515H/shoe4.jpg;;;images
+;515Wx515H;/515Wx515H/shoe5.jpg;$siteResource/515Wx515H/shoe5.jpg;;;images
+;515Wx515H;/515Wx515H/shoe6.jpg;$siteResource/515Wx515H/shoe6.jpg;;;images
+;515Wx515H;/515Wx515H/shoe7.jpg;$siteResource/515Wx515H/shoe7.jpg;;;images
+;515Wx515H;/515Wx515H/shoe8.jpg;$siteResource/515Wx515H/shoe8.jpg;;;images
+;515Wx515H;/515Wx515H/shoe9.jpg;$siteResource/515Wx515H/shoe9.jpg;;;images
+;515Wx515H;/515Wx515H/shoe10.jpg;$siteResource/515Wx515H/shoe10.jpg;;;images
+
+;300Wx300H;/300Wx300H/shoe1.jpg;$siteResource/300Wx300H/shoe1.jpg;;;images
+;300Wx300H;/300Wx300H/shoe2.jpg;$siteResource/300Wx300H/shoe2.jpg;;;images
+;300Wx300H;/300Wx300H/shoe3.jpg;$siteResource/300Wx300H/shoe3.jpg;;;images
+;300Wx300H;/300Wx300H/shoe4.jpg;$siteResource/300Wx300H/shoe4.jpg;;;images
+;300Wx300H;/300Wx300H/shoe5.jpg;$siteResource/300Wx300H/shoe5.jpg;;;images
+;300Wx300H;/300Wx300H/shoe6.jpg;$siteResource/300Wx300H/shoe6.jpg;;;images
+;300Wx300H;/300Wx300H/shoe7.jpg;$siteResource/300Wx300H/shoe7.jpg;;;images
+;300Wx300H;/300Wx300H/shoe8.jpg;$siteResource/300Wx300H/shoe8.jpg;;;images
+;300Wx300H;/300Wx300H/shoe9.jpg;$siteResource/300Wx300H/shoe9.jpg;;;images
+;300Wx300H;/300Wx300H/shoe10.jpg;$siteResource/300Wx300H/shoe10.jpg;;;images
+
+;96Wx96H;/96Wx96H/shoe1.jpg;$siteResource/96Wx96H/shoe1.jpg;;;images
+;96Wx96H;/96Wx96H/shoe2.jpg;$siteResource/96Wx96H/shoe2.jpg;;;images
+;96Wx96H;/96Wx96H/shoe3.jpg;$siteResource/96Wx96H/shoe3.jpg;;;images
+;96Wx96H;/96Wx96H/shoe4.jpg;$siteResource/96Wx96H/shoe4.jpg;;;images
+;96Wx96H;/96Wx96H/shoe5.jpg;$siteResource/96Wx96H/shoe5.jpg;;;images
+;96Wx96H;/96Wx96H/shoe6.jpg;$siteResource/96Wx96H/shoe6.jpg;;;images
+;96Wx96H;/96Wx96H/shoe7.jpg;$siteResource/96Wx96H/shoe7.jpg;;;images
+;96Wx96H;/96Wx96H/shoe8.jpg;$siteResource/96Wx96H/shoe8.jpg;;;images
+;96Wx96H;/96Wx96H/shoe9.jpg;$siteResource/96Wx96H/shoe9.jpg;;;images
+;96Wx96H;/96Wx96H/shoe10.jpg;$siteResource/96Wx96H/shoe10.jpg;;;images
+
+;65Wx65H;/65Wx65H/shoe1.jpg;$siteResource/65Wx65H/shoe1.jpg;;;images
+;65Wx65H;/65Wx65H/shoe2.jpg;$siteResource/65Wx65H/shoe2.jpg;;;images
+;65Wx65H;/65Wx65H/shoe3.jpg;$siteResource/65Wx65H/shoe3.jpg;;;images
+;65Wx65H;/65Wx65H/shoe4.jpg;$siteResource/65Wx65H/shoe4.jpg;;;images
+;65Wx65H;/65Wx65H/shoe5.jpg;$siteResource/65Wx65H/shoe5.jpg;;;images
+;65Wx65H;/65Wx65H/shoe6.jpg;$siteResource/65Wx65H/shoe6.jpg;;;images
+;65Wx65H;/65Wx65H/shoe7.jpg;$siteResource/65Wx65H/shoe7.jpg;;;images
+;65Wx65H;/65Wx65H/shoe8.jpg;$siteResource/65Wx65H/shoe8.jpg;;;images
+;65Wx65H;/65Wx65H/shoe9.jpg;$siteResource/65Wx65H/shoe9.jpg;;;images
+;65Wx65H;/65Wx65H/shoe10.jpg;$siteResource/65Wx65H/shoe10.jpg;;;images
+
+;30Wx30H;/30Wx30H/shoe1.jpg;$siteResource/30Wx30H/shoe1.jpg;;;images
+;30Wx30H;/30Wx30H/shoe2.jpg;$siteResource/30Wx30H/shoe2.jpg;;;images
+;30Wx30H;/30Wx30H/shoe3.jpg;$siteResource/30Wx30H/shoe3.jpg;;;images
+;30Wx30H;/30Wx30H/shoe4.jpg;$siteResource/30Wx30H/shoe4.jpg;;;images
+;30Wx30H;/30Wx30H/shoe5.jpg;$siteResource/30Wx30H/shoe5.jpg;;;images
+;30Wx30H;/30Wx30H/shoe6.jpg;$siteResource/30Wx30H/shoe6.jpg;;;images
+;30Wx30H;/30Wx30H/shoe7.jpg;$siteResource/30Wx30H/shoe7.jpg;;;images
+;30Wx30H;/30Wx30H/shoe8.jpg;$siteResource/30Wx30H/shoe8.jpg;;;images
+;30Wx30H;/30Wx30H/shoe9.jpg;$siteResource/30Wx30H/shoe9.jpg;;;images
+;30Wx30H;/30Wx30H/shoe10.jpg;$siteResource/30Wx30H/shoe10.jpg;;;images
+
+# Create Media Containers
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;0001_1.jpg;/1200Wx1200H/shoe1.jpg,/515Wx515H/shoe1.jpg,/300Wx300H/shoe1.jpg,/96Wx96H/shoe1.jpg,/65Wx65H/shoe1.jpg,/30Wx30H/shoe1.jpg
+;0002_1.jpg;/1200Wx1200H/shoe2.jpg,/515Wx515H/shoe2.jpg,/300Wx300H/shoe2.jpg,/96Wx96H/shoe2.jpg,/65Wx65H/shoe2.jpg,/30Wx30H/shoe2.jpg
+;0003_1.jpg;/1200Wx1200H/shoe3.jpg,/515Wx515H/shoe3.jpg,/300Wx300H/shoe3.jpg,/96Wx96H/shoe3.jpg,/65Wx65H/shoe3.jpg,/30Wx30H/shoe3.jpg
+;0004_1.jpg;/1200Wx1200H/shoe4.jpg,/515Wx515H/shoe4.jpg,/300Wx300H/shoe4.jpg,/96Wx96H/shoe4.jpg,/65Wx65H/shoe4.jpg,/30Wx30H/shoe4.jpg
+;0005_1.jpg;/1200Wx1200H/shoe5.jpg,/515Wx515H/shoe5.jpg,/300Wx300H/shoe5.jpg,/96Wx96H/shoe5.jpg,/65Wx65H/shoe5.jpg,/30Wx30H/shoe5.jpg
+;0006_1.jpg;/1200Wx1200H/shoe6.jpg,/515Wx515H/shoe6.jpg,/300Wx300H/shoe6.jpg,/96Wx96H/shoe6.jpg,/65Wx65H/shoe6.jpg,/30Wx30H/shoe6.jpg
+;0007_1.jpg;/1200Wx1200H/shoe7.jpg,/515Wx515H/shoe7.jpg,/300Wx300H/shoe7.jpg,/96Wx96H/shoe7.jpg,/65Wx65H/shoe7.jpg,/30Wx30H/shoe7.jpg
+;0008_1.jpg;/1200Wx1200H/shoe8.jpg,/515Wx515H/shoe8.jpg,/300Wx300H/shoe8.jpg,/96Wx96H/shoe8.jpg,/65Wx65H/shoe8.jpg,/30Wx30H/shoe8.jpg
+;0009_1.jpg;/1200Wx1200H/shoe9.jpg,/515Wx515H/shoe9.jpg,/300Wx300H/shoe9.jpg,/96Wx96H/shoe9.jpg,/65Wx65H/shoe9.jpg,/30Wx30H/shoe9.jpg
+;0010_1.jpg;/1200Wx1200H/shoe10.jpg,/515Wx515H/shoe10.jpg,/300Wx300H/shoe10.jpg,/96Wx96H/shoe10.jpg,/65Wx65H/shoe10.jpg,/30Wx30H/shoe10.jpg
+
+# ;0001_small_1.jpg;/1200Wx1200H/shoe1.jpg,/515Wx515H/shoe1.jpg,/300Wx300H/shoe1.jpg,/96Wx96H/shoe1.jpg,/65Wx65H/shoe1.jpg,/30Wx30H/shoe1.jpg
+# ;0001_medium_1.jpg;/1200Wx1200H/shoe1.jpg,/515Wx515H/shoe1.jpg,/300Wx300H/shoe1.jpg,/96Wx96H/shoe1.jpg,/65Wx65H/shoe1.jpg,/30Wx30H/shoe1.jpg
+# ;0001_large_1.jpg;/1200Wx1200H/shoe1.jpg,/515Wx515H/shoe1.jpg,/300Wx300H/shoe1.jpg,/96Wx96H/shoe1.jpg,/65Wx65H/shoe1.jpg,/30Wx30H/shoe1.jpg
+
+# ;0004_small_4.jpg;/1200Wx1200H/shoe4.jpg,/515Wx515H/shoe4.jpg,/300Wx300H/shoe4.jpg,/96Wx96H/shoe4.jpg,/65Wx65H/shoe4.jpg,/30Wx30H/shoe4.jpg
+# ;0004_medium_4.jpg;/1200Wx1200H/shoe4.jpg,/515Wx515H/shoe4.jpg,/300Wx300H/shoe4.jpg,/96Wx96H/shoe4.jpg,/65Wx65H/shoe4.jpg,/30Wx30H/shoe4.jpg
+# ;0004_large_4.jpg;/1200Wx1200H/shoe4.jpg,/515Wx515H/shoe4.jpg,/300Wx300H/shoe4.jpg,/96Wx96H/shoe4.jpg,/65Wx65H/shoe4.jpg,/30Wx30H/shoe4.jpg
+
+# ;0009_small_9.jpg;/1200Wx1200H/shoe9.jpg,/515Wx515H/shoe9.jpg,/300Wx300H/shoe9.jpg,/96Wx96H/shoe9.jpg,/65Wx65H/shoe9.jpg,/30Wx30H/shoe9.jpg
+# ;0009_medium_9.jpg;/1200Wx1200H/shoe9.jpg,/515Wx515H/shoe9.jpg,/300Wx300H/shoe9.jpg,/96Wx96H/shoe9.jpg,/65Wx65H/shoe9.jpg,/30Wx30H/shoe9.jpg
+# ;0009_large_9.jpg;/1200Wx1200H/shoe9.jpg,/515Wx515H/shoe9.jpg,/300Wx300H/shoe9.jpg,/96Wx96H/shoe9.jpg,/65Wx65H/shoe9.jpg,/30Wx30H/shoe9.jpg
+
+# Update Products with Media and Media Containers
+INSERT_UPDATE Product;code[unique=true];$catalogVersion;$galleryImages;$picture;$thumbnail
+;0001;;0001_1.jpg;/300Wx300H/shoe1.jpg;/96Wx96H/shoe1.jpg
+;0002;;0002_1.jpg;/300Wx300H/shoe2.jpg;/96Wx96H/shoe2.jpg
+;0003;;0003_1.jpg;/300Wx300H/shoe3.jpg;/96Wx96H/shoe3.jpg
+;0004;;0004_1.jpg;/300Wx300H/shoe4.jpg;/96Wx96H/shoe4.jpg
+;0005;;0005_1.jpg;/300Wx300H/shoe5.jpg;/96Wx96H/shoe5.jpg
+;0006;;0006_1.jpg;/300Wx300H/shoe6.jpg;/96Wx96H/shoe6.jpg
+;0007;;0007_1.jpg;/300Wx300H/shoe7.jpg;/96Wx96H/shoe7.jpg
+;0008;;0008_1.jpg;/300Wx300H/shoe8.jpg;/96Wx96H/shoe8.jpg
+;0009;;0009_1.jpg;/300Wx300H/shoe9.jpg;/96Wx96H/shoe9.jpg
+;0010;;0010_1.jpg;/300Wx300H/shoe10.jpg;/96Wx96H/shoe10.jpg
+
+INSERT_UPDATE ApparelSizeVariantProduct;code[unique=true];$catalogVersion;$galleryImages;$picture;$thumbnail
+;0001_small;;0001_1.jpg;/300Wx300H/shoe1.jpg;/96Wx96H/shoe1.jpg
+;0001_medium;;0001_1.jpg;/300Wx300H/shoe1.jpg;/96Wx96H/shoe1.jpg
+;0001_large;;0001_1.jpg;/300Wx300H/shoe1.jpg;/96Wx96H/shoe1.jpg
+
+;0002_small;;0002_1.jpg;/300Wx300H/shoe2.jpg;/96Wx96H/shoe2.jpg
+;0002_medium;;0002_1.jpg;/300Wx300H/shoe2.jpg;/96Wx96H/shoe2.jpg
+;0002_large;;0002_1.jpg;/300Wx300H/shoe2.jpg;/96Wx96H/shoe2.jpg
+
+;0003_small;;0003_1.jpg;/300Wx300H/shoe3.jpg;/96Wx96H/shoe3.jpg
+;0003_medium;;0003_1.jpg;/300Wx300H/shoe3.jpg;/96Wx96H/shoe3.jpg
+;0003_large;;0003_1.jpg;/300Wx300H/shoe3.jpg;/96Wx96H/shoe3.jpg
+
+
+;0004_small;;0004_1.jpg;/300Wx300H/shoe4.jpg;/96Wx96H/shoe4.jpg
+;0004_medium;;0004_1.jpg;/300Wx300H/shoe4.jpg;/96Wx96H/shoe4.jpg
+;0004_large;;0004_1.jpg;/300Wx300H/shoe4.jpg;/96Wx96H/shoe4.jpg
+
+;0005_small;;0005_1.jpg;/300Wx300H/shoe5.jpg;/96Wx96H/shoe5.jpg
+;0005_medium;;0005_1.jpg;/300Wx300H/shoe5.jpg;/96Wx96H/shoe5.jpg
+;0005_large;;0005_1.jpg;/300Wx300H/shoe5.jpg;/96Wx96H/shoe5.jpg
+
+;0006_small;;0006_1.jpg;/300Wx300H/shoe6.jpg;/96Wx96H/shoe6.jpg
+;0006_medium;;0006_1.jpg;/300Wx300H/shoe6.jpg;/96Wx96H/shoe6.jpg
+;0006_large;;0006_1.jpg;/300Wx300H/shoe6.jpg;/96Wx96H/shoe6.jpg
+
+;0007_small;;0007_1.jpg;/300Wx300H/shoe7.jpg;/96Wx96H/shoe7.jpg
+;0007_medium;;0007_1.jpg;/300Wx300H/shoe7.jpg;/96Wx96H/shoe7.jpg
+;0007_large;;0007_1.jpg;/300Wx300H/shoe7.jpg;/96Wx96H/shoe7.jpg
+
+;0008_small;;0008_1.jpg;/300Wx300H/shoe8.jpg;/96Wx96H/shoe8.jpg
+;0008_medium;;0008_1.jpg;/300Wx300H/shoe8.jpg;/96Wx96H/shoe8.jpg
+;0008_large;;0008_1.jpg;/300Wx300H/shoe8.jpg;/96Wx96H/shoe8.jpg
+
+
+;0009_small;;0009_1.jpg;/300Wx300H/shoe9.jpg;/96Wx96H/shoe9.jpg
+;0009_medium;;0009_1.jpg;/300Wx300H/shoe9.jpg;/96Wx96H/shoe9.jpg
+;0009_large;;0009_1.jpg;/300Wx300H/shoe9.jpg;/96Wx96H/shoe9.jpg
+
+;0010_small;;0010_1.jpg;/300Wx300H/shoe10.jpg;/96Wx96H/shoe10.jpg
+;0010_medium;;0010_1.jpg;/300Wx300H/shoe10.jpg;/96Wx96H/shoe10.jpg
+;0010_large;;0010_1.jpg;/300Wx300H/shoe10.jpg;/96Wx96H/shoe10.jpg
+

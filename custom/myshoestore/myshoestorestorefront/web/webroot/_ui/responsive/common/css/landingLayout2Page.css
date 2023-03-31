@@ -1,0 +1,33 @@
+.customOffersComponent{
+	border:1px dotted #a5a5a5;
+	border-width:1px 0 ;
+	position:relative;
+}
+
+.customOffersComponent_header_text .customOffersComponent_header_text{
+	border-bottom:1px solid #a5a5a5;
+	height:30px;
+	line-height:30px;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:1em;
+	white-space: nowrap;
+	display:block;
+	margin:0 0 10px 0;
+}
+.offers_list{
+	margin: 20px 0;
+	padding: 5px;
+	border: 1px dotted #000;
+}
+.offers_list_element{
+	vertical-align:top;
+	border-bottom:1px dotted #a5a5a5;
+	padding:20px 0 0 0;
+}
+
+.offers_image{
+	float:left;
+	text-align:center;
+
+}
